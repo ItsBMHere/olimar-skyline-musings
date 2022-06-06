@@ -1,0 +1,28 @@
+[package]
+name = "my_first_plugin"
+version = "0.1.0"
+authors = ["jam1garner <jam1.mcleod@hotmail.com>"]
+edition = "2018"
+
+[package.metadata.skyline]
+titleid = "01006A800016E000"
+plugin-dependencies = [
+    { name = "libnro_hook.nro", url = "https://github.com/ultimate-research/nro-hook-plugin/releases/download/v0.3.0/libnro_hook.nro" },
+    { name = "libparam_hook.nro", url = "https://github.com/ultimate-research/params-hook-plugin/releases/download/v0.1.1/libparam_hook.nro" },
+    { name = "libnn_hid_hook.nro", url = "https://github.com/jugeeya/nn-hid-hook/releases/download/beta/libnn_hid_hook.nro" }
+]
+
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+skyline = { git = "https://github.com/ultimate-research/skyline-rs.git" }
+skyline_smash = { git = "https://github.com/ultimate-research/skyline-smash.git" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = true
